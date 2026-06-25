@@ -31,3 +31,4 @@ test:
 
 clean:
 	rm -f main *.gcno *.gcda *.gcov
+.
