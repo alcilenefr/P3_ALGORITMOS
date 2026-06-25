@@ -1,0 +1,18 @@
+        -:    0:Source:bubble.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:void algoritmoSort(int v[], int n) {
+        -:    4:    int i, j, temp;
+       11:    5:    for (i = 0; i < n - 1; i++) {
+       34:    6:        for (j = 0; j < n - i - 1; j++) {
+       25:    7:            if (v[j] > v[j + 1]) {
+       18:    8:                temp = v[j];
+       18:    9:                v[j] = v[j + 1];
+       18:   10:                v[j + 1] = temp;
+        -:   11:            }
+        -:   12:        }
+        -:   13:    }
+        2:   14:}

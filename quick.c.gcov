@@ -1,0 +1,36 @@
+        -:    0:Source:quick.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+       17:    3:void swap(int* a, int* b) {
+       17:    4:    int t = *a;
+       17:    5:    *a = *b;
+       17:    6:    *b = t;
+       17:    7:}
+        -:    8:
+        8:    9:int partition(int v[], int low, int high) {
+        8:   10:    int pivot = v[high];
+        8:   11:    int i = (low - 1);
+       27:   12:    for (int j = low; j <= high - 1; j++) {
+       19:   13:        if (v[j] < pivot) {
+        9:   14:            i++;
+        9:   15:            swap(&v[i], &v[j]);
+        -:   16:        }
+        -:   17:    }
+        8:   18:    swap(&v[i + 1], &v[high]);
+        8:   19:    return (i + 1);
+        -:   20:}
+        -:   21:
+       18:   22:void quickSortActual(int v[], int low, int high) {
+       18:   23:    if (low < high) {
+        8:   24:        int pi = partition(v, low, high);
+        8:   25:        quickSortActual(v, low, pi - 1);
+        8:   26:        quickSortActual(v, pi + 1, high);
+        -:   27:    }
+       18:   28:}
+        -:   29:
+        2:   30:void algoritmoSort(int v[], int n) {
+        2:   31:    quickSortActual(v, 0, n - 1);
+        2:   32:}

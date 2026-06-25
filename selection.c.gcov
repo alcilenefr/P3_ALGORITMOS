@@ -1,0 +1,20 @@
+        -:    0:Source:selection.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:void algoritmoSort(int v[], int n) {
+        -:    4:    int i, j, min_idx, temp;
+       11:    5:    for (i = 0; i < n - 1; i++) {
+        9:    6:        min_idx = i;
+       34:    7:        for (j = i + 1; j < n; j++) {
+       25:    8:            if (v[j] < v[min_idx]) {
+       12:    9:                min_idx = j;
+        -:   10:            }
+        -:   11:        }
+        9:   12:        temp = v[min_idx];
+        9:   13:        v[min_idx] = v[i];
+        9:   14:        v[i] = temp;
+        -:   15:    }
+        2:   16:}

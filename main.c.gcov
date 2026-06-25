@@ -1,0 +1,44 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:// Força a inclusão do arquivo de ordenação correto via linha de comando
+        -:    4:#ifndef ALGO_FILE
+        -:    5:#define ALGO_FILE "bubble.c"
+        -:    6:#endif
+        -:    7:
+        -:    8:#include ALGO_FILE
+        -:    9:
+        2:   10:int checarOrdenado(int v[], int n) {
+       11:   11:    for (int i = 0; i < n - 1; i++) {
+       9*:   12:        if (v[i] > v[i + 1]) return 0; // Falhou
+        -:   13:    }
+        2:   14:    return 1; // Passou
+        -:   15:}
+        -:   16:
+        1:   17:void rodarTestes() {
+        -:   18:    // Caso de Teste 1: Vetor Invertido
+        1:   19:    int t1[] = {5, 4, 3, 2, 1};
+        1:   20:    algoritmoSort(t1, 5);
+        1:   21:    if (checarOrdenado(t1, 5)) {
+        1:   22:        printf("Teste 1 (Invertido): PASSOU\n");
+        -:   23:    } else {
+    #####:   24:        printf("Teste 1 (Invertido): FALHOU\n");
+        -:   25:    }
+        -:   26:
+        -:   27:    // Caso de Teste 2: Vetor Aleatório
+        1:   28:    int t2[] = {12, 34, 5, 70, 2, 23};
+        1:   29:    algoritmoSort(t2, 6);
+        1:   30:    if (checarOrdenado(t2, 6)) {
+        1:   31:        printf("Teste 2 (Aleatorio): PASSOU\n");
+        -:   32:    } else {
+    #####:   33:        printf("Teste 2 (Aleatorio): FALHOU\n");
+        -:   34:    }
+        1:   35:}
+        -:   36:
+        1:   37:int main() {
+        1:   38:    rodarTestes();
+        1:   39:    return 0;
+        -:   40:}

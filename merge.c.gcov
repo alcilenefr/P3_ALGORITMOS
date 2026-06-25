@@ -1,0 +1,35 @@
+        -:    0:Source:merge.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        9:    3:void merge(int v[], int l, int m, int r) {
+        -:    4:    int i, j, k;
+        9:    5:    int n1 = m - l + 1;
+        9:    6:    int n2 = r - m;
+        9:    7:    int L[n1], R[n2];
+       25:    8:    for (i = 0; i < n1; i++) L[i] = v[l + i];
+       21:    9:    for (j = 0; j < n2; j++) R[j] = v[m + 1 + j];
+        9:   10:    i = 0; j = 0; k = l;
+       24:   11:    while (i < n1 && j < n2) {
+       15:   12:        if (L[i] <= R[j]) { v[k] = L[i]; i++; }
+       10:   13:        else { v[k] = R[j]; j++; }
+       15:   14:        k++;
+        -:   15:    }
+       20:   16:    while (i < n1) { v[k] = L[i]; i++; k++; }
+       11:   17:    while (j < n2) { v[k] = R[j]; j++; k++; }
+        9:   18:}
+        -:   19:
+       20:   20:void mergeSortActual(int v[], int l, int r) {
+       20:   21:    if (l < r) {
+        9:   22:        int m = l + (r - l) / 2;
+        9:   23:        mergeSortActual(v, l, m);
+        9:   24:        mergeSortActual(v, m + 1, r);
+        9:   25:        merge(v, l, m, r);
+        -:   26:    }
+       20:   27:}
+        -:   28:
+        2:   29:void algoritmoSort(int v[], int n) {
+        2:   30:    mergeSortActual(v, 0, n - 1);
+        2:   31:}

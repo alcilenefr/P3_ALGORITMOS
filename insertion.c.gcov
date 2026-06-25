@@ -1,0 +1,18 @@
+        -:    0:Source:insertion.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:void algoritmoSort(int v[], int n) {
+        -:    4:    int i, key, j;
+       11:    5:    for (i = 1; i < n; i++) {
+        9:    6:        key = v[i];
+        9:    7:        j = i - 1;
+       27:    8:        while (j >= 0 && v[j] > key) {
+       18:    9:            v[j + 1] = v[j];
+       18:   10:            j = j - 1;
+        -:   11:        }
+        9:   12:        v[j + 1] = key;
+        -:   13:    }
+        2:   14:}

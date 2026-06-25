@@ -1,0 +1,31 @@
+        -:    0:Source:heap.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+       22:    3:void swapHeap(int* a, int* b) {
+       22:    4:    int t = *a;
+       22:    5:    *a = *b;
+       22:    6:    *b = t;
+       22:    7:}
+        -:    8:
+       27:    9:void heapify(int v[], int n, int i) {
+       27:   10:    int largest = i;
+       27:   11:    int l = 2 * i + 1;
+       27:   12:    int r = 2 * i + 2;
+       27:   13:    if (l < n && v[l] > v[largest]) largest = l;
+       27:   14:    if (r < n && v[r] > v[largest]) largest = r;
+       27:   15:    if (largest != i) {
+       13:   16:        swapHeap(&v[i], &v[largest]);
+       13:   17:        heapify(v, n, largest);
+        -:   18:    }
+       27:   19:}
+        -:   20:
+        2:   21:void algoritmoSort(int v[], int n) {
+        7:   22:    for (int i = n / 2 - 1; i >= 0; i--) heapify(v, n, i);
+       11:   23:    for (int i = n - 1; i > 0; i--) {
+        9:   24:        swapHeap(&v[0], &v[i]);
+        9:   25:        heapify(v, i, 0);
+        -:   26:    }
+        2:   27:}
