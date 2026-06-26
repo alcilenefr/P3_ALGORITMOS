@@ -31,4 +31,7 @@ test:
 
 clean:
 	rm -f main *.gcno *.gcda *.gcov
+test:
+	gcc main.c -o main.exe --coverage
+	./main.exe
 .
