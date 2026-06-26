@@ -1,3 +1,4 @@
+// Algoritmo de Ordenacao Bolha (Bubble Sort) - Implementacao Padrao
 #include <stdio.h>
 
 void algoritmoSort(int v[], int n) {
