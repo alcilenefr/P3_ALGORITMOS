@@ -32,6 +32,5 @@ test:
 clean:
 	rm -f main *.gcno *.gcda *.gcov
 test:
-	gcc main.c -o main.exe --coverage
-	./main.exe
-.
+	gcc -fprofile-arcs -ftest-coverage tests/test_basic.c -o tests/test_basic.exe
+	./tests/test_basic.exe
