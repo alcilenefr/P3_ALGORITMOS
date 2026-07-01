@@ -30,7 +30,7 @@ test:
 	gcov main.c
 
 clean:
-	rm -f main *.gcno *.gcda *.gcov coverage.html tests/test_basic.exe
+	rm -f main *.gcno *.gcda *.gcov coverage.html gmon.out tests/test_basic.exe
 
 # Regra que compila e roda os testes estruturados da pasta tests
 test_advanced:
